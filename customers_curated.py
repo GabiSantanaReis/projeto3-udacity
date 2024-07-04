@@ -32,8 +32,8 @@ Filter_node1720064303266 = Filter.apply(frame=ChangeSchema_node1720064255841, f=
 Join_node1720066922432 = Join.apply(frame1=ChangeSchema_node1720066915773, frame2=Filter_node1720064303266, keys1=["user"], keys2=["email"], transformation_ctx="Join_node1720066922432")
 
 # Script generated for node Amazon S3
-AmazonS3_node1720067012286 = glueContext.getSink(path="s3://data-lake-estudo-udacity/accelerometer/trusted/", connection_type="s3", updateBehavior="LOG", partitionKeys=[], enableUpdateCatalog=True, transformation_ctx="AmazonS3_node1720067012286")
-AmazonS3_node1720067012286.setCatalogInfo(catalogDatabase="stedi",catalogTableName="accelerometer_trusted")
+AmazonS3_node1720067012286 = glueContext.getSink(path="s3://data-lake-estudo-udacity/customer/curated/", connection_type="s3", updateBehavior="LOG", partitionKeys=[], enableUpdateCatalog=True, transformation_ctx="AmazonS3_node1720067012286")
+AmazonS3_node1720067012286.setCatalogInfo(catalogDatabase="stedi",catalogTableName="customers_curated")
 AmazonS3_node1720067012286.setFormat("glueparquet", compression="snappy")
 AmazonS3_node1720067012286.writeFrame(Join_node1720066922432)
 job.commit()
